@@ -1,14 +1,8 @@
-This server runs in a production mode. 
+# Blitz source code
 
-Staging version of the server is running locally on port 3000.
-Please use staging version for testing, reporting purposes. 
-DO NOT engage with the production server. 
+Source of the Blitz application for ICSD 2023. 
 
-Credentials for the git repository:
-git@blitz - BUY4b2RFXH9cG1ILYT4h
+## This app is vulnerable to RCE
 
-Credentials for the Jenkins server:
-administrator - K1hM7E3Io0I3u3yawKbS
-
-P.S. The jenkins doesn't listen for new commits. 
-Please rebuild the application after changes. 
+[Walkthrough](https://github.com/icsd-ctf/ICSD/blob/master/Game%20Of%20Thrones/Machines/Blitz/Walkthrough.md
+)

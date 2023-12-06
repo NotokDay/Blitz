@@ -1,0 +1,136 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+}
+
+.sidebar h2 {
+  color: #fff;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #ccc; /* Add border */
+  background-color: #444; /* Add background color */
+}
+
+a.active {
+  background-color: #4CAF50;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.tabcontent {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px; /* Add some space between tables */
+  border: 1px solid #ccc; /* Add border to tables */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Add border to table cells */
+  padding: 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+#newProductButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newProductButton:hover {
+  background-color: #45a049;
+}
+
+#newProductForm {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a little spacing between form fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style form labels and input fields */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* Add some space below labels */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Style the submit button */
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block; /* Display block for full width */
+  margin-top: 10px; /* Add some space above the button */
+}
+
+button:hover {
+  background-color: #45a049;
+}

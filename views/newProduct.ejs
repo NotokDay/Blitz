@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Product</title>
+  <link rel="stylesheet" type="text/css" href="/css/newProduct.css">
+</head>
+<body>
+  <h1>Add New Product</h1>
+  
+  <form id="newProductForm" action="/admin/newProduct" method="POST">
+    <a href="/admin">Back</a>
+    <div id="new-product-status-message"><%= message %></div><br>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Brand:</label>
+      <input type="text" id="brand" name="brand" required>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" name="rating" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock:</label>
+      <input type="number" id="stock" name="stock" required>
+    </div>
+
+    <div class="form-group">
+      <label for="discountPercentage">Discount Percentage:</label>
+      <input type="number" id="discountPercentage" name="discountPercentage" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Add Product</button>
+    </div>
+   
+  </form>
+
+  <script src="/js/panel.js"></script>
+</body>
+</html>

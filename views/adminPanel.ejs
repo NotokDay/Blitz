@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" type="text/css" href="/css/panel.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a id="productsTab" class="active" href="#">Products</a></li>
+      <li><a id="usersTab" href="#">Users</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div id="productsTable" class="tabcontent">
+      <h1>Product List</h1>
+      <div id="products-status-message"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(product) { %>
+            <tr>
+              <td><%= product.title %></td>
+              <td><%= product.brand %></td>
+              <td><%= product.category %></td>
+              <td><%= product.description %></td>
+              <td><%= product.price%></td>
+              <td><%= product.rating %></td>
+              <td><%= product.stock %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <br><button id="newProductButton">Create New Product</button>
+
+    </div>
+    <div id="usersTable" class="tabcontent">
+      <h1>Users List</h1>
+      <div id="users-status-message"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>fullname</th>
+            <th>username</th>
+            <th>email</th>
+            <th>isadmin</th>
+            <th>Make Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user) { %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.fullname %></td>
+              <td><%= user.username %></td>
+              <td><%= user.email %></td>
+              <td><%= user.isadmin%></td>
+              <td><button onclick="MakeAdmin(<%= user.id %>)">Make Admin</button></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/js/panel.js"></script>
+  <script>
+
+    async function MakeAdmin(id){
+      const statusField = document.getElementById("users-status-message")
+
+      var res = await fetch('/admin/addAdmin', {
+      method: "POST",
+      mode: "cors", 
+      cache: "no-cache", 
+      credentials: "same-origin", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer", 
+      body: JSON.stringify({id:id}), 
+    });
+    
+    const responseJson = await res.json();
+    if (res.status === 200) {
+      if (responseJson) {          
+          statusField.innerHTML = `<p style="color: green;">${responseJson.message}. Refreshing the page...</p>`
+          setTimeout(() => {
+              window.location.href = '/admin';
+          }, 1500);
+      } else {
+        console.error('Something went wrong');
+      }
+    } else {
+      // Handle non-200 status codes
+      console.error(`Request failed with status: ${res.status}`);
+      statusField.innerHTML = `<p style="color: red;">${responseJson.message}</p>`
+    }
+    }
+  </script>
+</body>
+</html>

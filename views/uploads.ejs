@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploaded Files</title>
+  <link rel="stylesheet" href="/css/uploads.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Uploaded Files</h1>
+    <a href="/">Back</a>
+    <table>
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Download</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% files.forEach(function(file) { %>
+          <tr>
+            <td><%= file %></td>
+            <td><a href="/uploads/<%= file %>" download="<%= file %>" class="download-btn">Download</a></td>
+            <td><a href="/delete/<%= file %>" class="delete-btn">Delete</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  <script src="/js/uploads.js"></script>
+</body>
+</html>
